@@ -1,0 +1,22 @@
+<input
+  [formControl]="control"
+  [type]="type"
+  class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
+  [placeholder]="placeholder"
+  [mask]="format"
+  [dropSpecialCharacters]="false"
+/>
+<ng-container *ngIf="control.touched && control.dirty">
+  <p class="text-red-400" *ngIf="control.errors?.pattern">Password Invalid</p>
+  <p *ngIf="control.errors?.required" class="text-red-400">Field is required</p>
+  <p *ngIf="control.errors?.minlength" class="text-red-400">
+    name Length:
+    {{ control.errors?.minlength.actualLength }}/3
+  </p>
+  <p *ngIf="control.errors?.email" class="text-red-400">
+    You must enter a valid email.
+  </p>
+  <p *ngIf="control.errors?.min || control.errors?.max" class="text-red-400">
+    Age should be between 18 to 120.
+  </p>
+</ng-container>
