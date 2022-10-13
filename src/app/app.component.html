@@ -241,8 +241,8 @@
             <svg
               viewBox="0 0 100 50"
               preserveAspectRatio="none"
-              class="absolute bottom-0 w-full h-full tranform"
               style="transform-origin: top center; transform: scale(2)"
+              class="absolute bottom-0 w-full h-full tranform"
             >
               <path d="M0 25h25L75 0h25v50H0z" fill="#283046"></path>
             </svg>
@@ -266,4 +266,6 @@
 </section>
 
 <!-- Auth Modal -->
-<app-auth-modal></app-auth-modal>
+<app-auth-modal
+  *ngIf="!(auth.isAuthenticatedWithDelay$ | async)"
+></app-auth-modal>
