@@ -7,7 +7,9 @@
   [dropSpecialCharacters]="false"
 />
 <ng-container *ngIf="control.touched && control.dirty">
-  <p class="text-red-400" *ngIf="control.errors?.pattern">Password Invalid</p>
+  <p class="text-red-400" *ngIf="control.errors?.pattern">
+    Password Required 8 characters and a symbol.
+  </p>
   <p *ngIf="control.errors?.required" class="text-red-400">Field is required</p>
   <p *ngIf="control.errors?.minlength" class="text-red-400">
     name Length:
@@ -18,5 +20,11 @@
   </p>
   <p *ngIf="control.errors?.min || control.errors?.max" class="text-red-400">
     Age should be between 18 to 120.
+  </p>
+  <p *ngIf="control.errors?.noMatch" class="text-red-400">
+    Passwords do not match.
+  </p>
+  <p *ngIf="control.errors?.emailTaken" class="text-red-400">
+    Email taken, Please try another email.
   </p>
 </ng-container>
